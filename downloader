@@ -1,0 +1,11 @@
+#!/usr/bin/env python3.10
+from pytube import YouTube
+
+def main():
+    yt = YouTube("https://www.youtube.com/watch?v=OrvepwqVcXQ")
+    streams = yt.streams.filter(file_extension="mp4", res="720p", progressive=True)
+    for stream in streams:
+        stream.download(output_path="/mnt/c/Videos")
+
+if __name__ == "__main__":
+    main()
