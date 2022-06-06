@@ -4,7 +4,7 @@ import click
 from pytube import YouTube
 
 
-def download(URL: str, path: str):
+def download(URL: str, path: str) -> None:
     yt = YouTube(URL)
     streams = yt.streams.filter(
         file_extension="mp4",
@@ -18,7 +18,7 @@ def download(URL: str, path: str):
 @click.command()
 @click.argument("path", type=click.STRING)
 @click.argument("list_of_videos", type=click.STRING)
-def main(path: str, list_of_videos: str):
+def main(path: str, list_of_videos: str) -> None:
     with open(file=list_of_videos, mode="r") as f:
         urls = f.readlines()
     for url in urls:
