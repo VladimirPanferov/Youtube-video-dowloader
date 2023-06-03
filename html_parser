@@ -12,7 +12,7 @@ def extract_youtube_links(file_path: str) -> list:
     result = []
     for link in soup.find_all("a"):
         href: str = link.get("href")
-        if href.startswith("https://youtu"):
+        if href.lower().find("youtu") != -1:
             result.append(href)
     return result
 
